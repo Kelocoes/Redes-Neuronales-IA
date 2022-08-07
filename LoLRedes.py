@@ -1,9 +1,9 @@
-from turtle import pd
 import sklearn
 import numpy as np
 import pandas as pd
-
 from sklearn.model_selection import train_test_split
+
+## lectura de los datos
 datos = pd.read_csv('games.csv', sep=';')
 
 cLargo = len(datos) 
@@ -91,7 +91,7 @@ warnings.filterwarnings(action= 'ignore')
 x_pruebas = full_pipeline.transform(c_pruebas)
 y_test = c_pruebas["winner"]
 
-"""
+
 #MODELO 1
 modelo_lol1 = MLPClassifier(activation='logistic',solver='lbfgs', alpha=1e-5,hidden_layer_sizes=(10,8), random_state=123)
 modelo_lol1.fit(x_entrenamiento,y_entrenamiento)
@@ -119,8 +119,8 @@ ax.set_ylabel('Etiquetas reales')
 ax.set_title('Matriz de confusión - Ganadores del LoL') 
 ax.xaxis.set_ticklabels(['Negative=0', 'Positive=1'])
 ax.yaxis.set_ticklabels(['Negative=0', 'Positive=1'])
-plt.show()
-
+#plt.show()
+"""
 #--------------------------------MODELO 2-------------------------------#
 modelo_lol2 = MLPClassifier(activation='tanh',solver='adam', alpha=1e-5,hidden_layer_sizes=(5,20,1,10), random_state=123)
 modelo_lol2.fit(x_entrenamiento,y_entrenamiento)
@@ -228,7 +228,7 @@ ax.xaxis.set_ticklabels(['Negative=0', 'Positive=1'])
 ax.yaxis.set_ticklabels(['Negative=0', 'Positive=1'])
 #plt.show()
 
-
+"""
 #--------------------------------MODELO 6-------------------------------#
 modelo_lol6 = MLPClassifier(activation='tanh',solver='adam', alpha=1e-5,hidden_layer_sizes=(10,1,20,1,30), random_state=123, beta_1 = 0.5)
 modelo_lol6.fit(x_entrenamiento,y_entrenamiento)
@@ -241,7 +241,6 @@ y_pred6 = modelo_lol6.predict(x_pruebas)
 
 
 print("Modelo 6",accuracy_score(y_test, y_pred6))
-
 
 confusion_matrix6 = confusion_matrix(y_test, y_pred6)
 print(confusion_matrix6)
@@ -284,3 +283,4 @@ ax.set_title('Matriz de confusión - Ganadores del LoL')
 ax.xaxis.set_ticklabels(['Negative=0', 'Positive=1'])
 ax.yaxis.set_ticklabels(['Negative=0', 'Positive=1'])
 #plt.show()
+"""
